@@ -1,0 +1,113 @@
+@import '_colors';
+@import '_fonts';
+@import '_mixins';
+@import '_responsive';
+
+.login {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  overflow: hidden;
+
+  height: 100vh;
+
+  @include tablet {
+    flex-flow: row;
+    align-items: center;
+  }
+
+  figure {
+    position: fixed;
+    z-index: 1;
+
+    margin: 0;
+    top: 0;
+    height: 45vh;
+    width: 100%;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    img {
+      margin-top: 5em;
+      width: 50%;
+    }
+
+    @include tablet {
+      width: 50%;
+      left: 0;
+    }
+  }
+
+  video {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+
+    @include res-video;
+
+    @include tablet {
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 160vh;
+      transform: scale(1.8);
+    }
+  }
+
+  &__bienvenido {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 55vh;
+    background-color: $light-color;
+    border-radius: 1em 1em 0 0;
+    padding: 0.5em 3em;
+
+    @include tablet {
+      border-radius: 1em 0 0 1em;
+      width: 50vw;
+      height: 100vh;
+    }
+
+    h4 {
+      font-size: $sm;
+      font-weight: 400;
+      color: $primary-color;
+      margin-bottom: 0.5em;
+    }
+
+    h5 {
+      font-size: $md;
+      margin-bottom: 1.5em;
+
+      @include tablet {
+        margin-bottom: 1em;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 1em 0.5em;
+      margin-bottom: 1em;
+      font-size: $xs;
+
+      @include main-input($primary-color);
+    }
+
+    span {
+      align-self: flex-end;
+      font-size: $xs;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8em 0;
+
+      @include main-button($secondary-color, $secondary-txt-color);
+    }
+  }
+}
